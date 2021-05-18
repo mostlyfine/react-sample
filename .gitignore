@@ -1,0 +1,9 @@
+.eslintcache
+.envrc
+.vscode
+*.swp
+*.log
+tmp/
+dist/
+logs/
+node_modules/
