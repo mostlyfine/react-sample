@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import ReactDOM from 'react-dom';
+import PropTypes from 'prop-types';
 
 const App = (props) => {
   const [keyword, setKeyword] = useState('夏目漱石');
@@ -30,7 +31,7 @@ const App = (props) => {
       <ul>
         { books.map((book) => (
           <li key={book.id}>
-            <a target="_blank" href={book.volumeInfo.previewLink}>
+            <a target="_blank" href={book.volumeInfo.previewLink} rel="noreferrer">
               <img src={book.volumeInfo.imageLinks ? book.volumeInfo.imageLinks.smallThumbnail : ''} />
               {book.volumeInfo.title}
             </a>
@@ -39,6 +40,10 @@ const App = (props) => {
       </ul>
     </>
   );
+};
+
+App.propTypes = {
+  title: PropTypes.string
 };
 
 ReactDOM.render(<App title="BookSearch" />, document.querySelector('#app'));
